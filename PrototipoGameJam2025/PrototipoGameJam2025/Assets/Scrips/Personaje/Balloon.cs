@@ -9,6 +9,8 @@ public class Balloon : MonoBehaviour
     // Nombre de la animación que deseas reproducir
     [SerializeField] private string bubbleExplosionAnimation = "BubbleExplosion";
 
+    [SerializeField] private AudioClip sonidoColision;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -16,8 +18,9 @@ public class Balloon : MonoBehaviour
 
     public void AnimacionExplosion()
     {
-        if (animator != null)
+        if (animator != null && sonidoColision != null)
         {
+            AudioSource.PlayClipAtPoint(sonidoColision, transform.position);
             animator.Play(bubbleExplosionAnimation);
         }
     }

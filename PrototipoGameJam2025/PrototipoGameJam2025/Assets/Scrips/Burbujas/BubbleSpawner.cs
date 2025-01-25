@@ -5,7 +5,8 @@ using UnityEngine;
 public class BubbleSpawner : MonoBehaviour
 {
     [Header("Prefabs y Configuración de Spawn")]
-    [SerializeField] private GameObject bubblePrefab;
+    // Cambiado de un único prefab a una lista de prefabs
+    [SerializeField] private List<GameObject> bubblePrefabs; // Lista de prefabs de burbujas
     [SerializeField] private float tiempoEntreOleadas = 4f;       // Tiempo entre cada oleada de burbujas
     [SerializeField] private int burbujasPorOleada = 3;           // Cantidad de burbujas por oleada
 
@@ -67,12 +68,23 @@ public class BubbleSpawner : MonoBehaviour
 
     private void SpawnBubble()
     {
+        // Verifica que la lista de prefabs no esté vacía
+        if (bubblePrefabs == null || bubblePrefabs.Count == 0)
+        {
+            Debug.LogWarning("No se han asignado prefabs de burbujas en el BubbleSpawner.");
+            return;
+        }
+
+        // Selecciona aleatoriamente un prefab de la lista
+        int randomIndex = Random.Range(0, bubblePrefabs.Count);
+        GameObject selectedPrefab = bubblePrefabs[randomIndex];
+
         // Calcula una posición aleatoria en X dentro del rango especificado
         float randomX = Random.Range(minX, maxX);
         Vector2 spawnPosition = new Vector2(randomX, ySpawn);
 
         // Instancia la burbuja en la posición calculada
-        Instantiate(bubblePrefab, spawnPosition, Quaternion.identity);
+        Instantiate(selectedPrefab, spawnPosition, Quaternion.identity);
     }
 
     public void DetenerSpawn()
@@ -98,24 +110,6 @@ public class BubbleSpawner : MonoBehaviour
         if (spawnerCoroutine == null)
         {
             spawnerCoroutine = StartCoroutine(SpawnBubblesInWaves());
-        }
-    }
-
-    public void PausarTodasLasBurbujas()
-    {
-        // Recorremos la lista estática y pausamos cada burbuja
-        foreach (var bubble in Bubble.allBubbles)
-        {
-            bubble.Pausar();
-        }
-    }
-
-    public void ReanudarTodasLasBurbujas()
-    {
-        // Recorremos la lista estática y reanudamos cada burbuja
-        foreach (var bubble in Bubble.allBubbles)
-        {
-            bubble.Reanudar();
         }
     }
 }

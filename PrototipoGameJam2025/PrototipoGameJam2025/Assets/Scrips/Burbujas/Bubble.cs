@@ -10,32 +10,22 @@ public class Bubble : MonoBehaviour
 
     public static List<Bubble> allBubbles = new List<Bubble>();
 
-    // Variables para guardar el estado al pausar.
-    private Vector2 savedVelocity;
-    private float savedAngularVelocity;
-    private float savedGravityScale;
+    [SerializeField] private AudioClip sonidoColision;
+
+    private Animator animator;
+
+    [SerializeField] private string bubbleExplosionAnimation;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        // Asegúrate de que el Rigidbody2D esté en modo Dynamic
-        rb.bodyType = RigidbodyType2D.Dynamic;
-
-        // Agregamos esta burbuja a la lista estática al instanciarse
-        allBubbles.Add(this);
     }
 
     private void Start()
     {
         // La burbuja se impulsa hacia arriba una vez al aparecer
         rb.AddForce(Vector2.up * fuerzaHaciaArriba, ForceMode2D.Impulse);
-    }
-
-    private void OnDestroy()
-    {
-        // La removemos de la lista cuando se destruye
-        allBubbles.Remove(this);
+        animator = GetComponent<Animator>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -47,35 +37,43 @@ public class Bubble : MonoBehaviour
             direccion.Normalize();
             collision.rigidbody.AddForce(direccion * fuerzaRebote, ForceMode2D.Impulse);
 
-            // Destruir la burbuja en cuanto colisione con el jugador
-            Destroy(gameObject);
+            if (sonidoColision != null)
+            {
+                AudioSource.PlayClipAtPoint(sonidoColision, transform.position);
+            }
+
+            if (animator != null)
+            {
+                animator.Play(bubbleExplosionAnimation);
+                StartCoroutine(DestroyAfterAnimation());
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
-    public void Pausar()
+    private IEnumerator DestroyAfterAnimation()
     {
-        if (rb != null)
-        {
-            // Guardamos su estado actual
-            savedVelocity = rb.velocity;
-            savedAngularVelocity = rb.angularVelocity;
-            savedGravityScale = rb.gravityScale;
+        // Esperar un frame para asegurarse de que el Animator ha cambiado de estado
+        yield return null;
 
-            // Ajustamos para “congelar” el Rigidbody sin cambiarlo a Kinematic
-            rb.velocity = Vector2.zero;
-            rb.angularVelocity = 0f;
-            rb.gravityScale = 0f;
-        }
-    }
+        // Obtener información del estado actual del Animator en la capa 0
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
 
-    public void Reanudar()
-    {
-        if (rb != null)
+        float animationDuration = stateInfo.length;
+
+        if (stateInfo.loop)
         {
-            // Restauramos su estado
-            rb.gravityScale = savedGravityScale;
-            rb.velocity = savedVelocity;
-            rb.angularVelocity = savedAngularVelocity;
+            yield return new WaitForSeconds(animationDuration);
         }
+        else
+        {
+            yield return new WaitForSeconds(animationDuration);
+        }
+
+        // Destruir el objeto
+        Destroy(gameObject);
     }
 }
