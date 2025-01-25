@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 394336547}
-  AudioManager: {fileID: 1147230493}
+  AudioManager: {fileID: 1147230491}
 --- !u!1 &402715695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,7 +1962,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
