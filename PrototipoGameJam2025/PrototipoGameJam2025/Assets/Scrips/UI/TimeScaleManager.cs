@@ -8,6 +8,7 @@ public class TimeScaleManager : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 1.0f;
         this.fixedDeltaTime = Time.fixedDeltaTime;
     }
 
