@@ -10,7 +10,7 @@ public class CuerpoDelPlayer : MonoBehaviour
     [SerializeField] private GameObject PanelReinicio;
     [SerializeField] private BubbleSpawner spawner1;
     [SerializeField] private BubbleSpawner spawner2;
-    [SerializeField] private 
+    [SerializeField] private TimeScaleManager timescaleManager;
 
     void OnTriggerEnter2D(Collider2D other)
     {
