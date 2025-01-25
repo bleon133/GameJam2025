@@ -8,11 +8,11 @@ public class MovimientoPersonaje : MonoBehaviour
     [Header("Parámetros de Movimiento")]
     [SerializeField] private float moveSpeed = 5f; // Velocidad de movimiento
 
-    private Rigidbody2D _rb2D;
+    private Rigidbody2D rb2D;
 
     private void Awake()
     {
-        _rb2D = GetComponent<Rigidbody2D>();
+        rb2D = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
@@ -22,15 +22,15 @@ public class MovimientoPersonaje : MonoBehaviour
         // Si se mantiene presionada la tecla A
         if (Input.GetKey(KeyCode.A))
         {
-            movement = -1f; 
+            movement = -1f;
         }
         // Si se mantiene presionada la tecla D
         else if (Input.GetKey(KeyCode.D))
         {
-            movement = 1f; 
+            movement = 1f;
         }
 
         // Aplicamos la velocidad al Rigidbody2D
-        _rb2D.velocity = new Vector2(movement * moveSpeed, _rb2D.velocity.y);
+        rb2D.velocity = new Vector2(movement * moveSpeed, rb2D.velocity.y);
     }
 }
