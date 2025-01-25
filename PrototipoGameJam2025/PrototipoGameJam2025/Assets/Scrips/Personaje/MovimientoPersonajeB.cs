@@ -11,7 +11,6 @@ public class MovimientoPersonajeB : MonoBehaviour
 
     private void Awake()
     {
-        // Obtenemos el componente Rigidbody2D
         _rb2D = GetComponent<Rigidbody2D>();
     }
 
@@ -23,12 +22,12 @@ public class MovimientoPersonajeB : MonoBehaviour
         // Si se mantiene presionada la flecha Izquierda
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            movement = -1f; // Mover hacia la izquierda
+            movement = -1f; 
         }
         // Si se mantiene presionada la flecha Derecha
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            movement = 1f; // Mover hacia la derecha
+            movement = 1f; 
         }
 
         // Aplicamos la velocidad al Rigidbody2D

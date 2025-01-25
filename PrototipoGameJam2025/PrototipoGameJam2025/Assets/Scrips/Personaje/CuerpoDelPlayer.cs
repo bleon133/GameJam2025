@@ -11,8 +11,8 @@ public class CuerpoDelPlayer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("BallonPlayer"))
         {
-            Destroy(GloboPlayerContrario);
-            playerControllerContrario.DropFaster();
+            Destroy(GloboPlayerContrario); //Destruye la burbuja contraria
+            playerControllerContrario.DropFaster(); //Aumeneta la gravedad y masa del contrario
         }
     }
 }

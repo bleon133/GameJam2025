@@ -12,24 +12,22 @@ public class MovimientoPersonaje : MonoBehaviour
 
     private void Awake()
     {
-        // Obtenemos el componente Rigidbody2D
         _rb2D = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
-        // Variable que contendrá la dirección de movimiento
         float movement = 0f;
 
         // Si se mantiene presionada la tecla A
         if (Input.GetKey(KeyCode.A))
         {
-            movement = -1f; // Mover hacia la izquierda
+            movement = -1f; 
         }
         // Si se mantiene presionada la tecla D
         else if (Input.GetKey(KeyCode.D))
         {
-            movement = 1f; // Mover hacia la derecha
+            movement = 1f; 
         }
 
         // Aplicamos la velocidad al Rigidbody2D
