@@ -801,11 +801,11 @@ MonoBehaviour:
   - {fileID: 5730879453468303237, guid: e4fd8e8320fd39d4c8d3358fcc5e75d6, type: 3}
   - {fileID: 5730879453468303237, guid: e0d8052dff0097b41bb9fba989435d3f, type: 3}
   tiempoEntreOleadas: 1
-  burbujasPorOleada: 3
+  burbujasPorOleada: 4
   minX: -25
   maxX: 25
   ySpawn: -20
-  tiempoEntreBurbujasDentroOleada: 0.1
+  tiempoEntreBurbujasDentroOleada: 0.5
 --- !u!212 &197179689
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2835,7 +2835,7 @@ MonoBehaviour:
   - {fileID: 5730879453468303237, guid: e4fd8e8320fd39d4c8d3358fcc5e75d6, type: 3}
   - {fileID: 5730879453468303237, guid: e0d8052dff0097b41bb9fba989435d3f, type: 3}
   tiempoEntreOleadas: 1
-  burbujasPorOleada: 3
+  burbujasPorOleada: 4
   minX: -25
   maxX: 25
   ySpawn: -20
