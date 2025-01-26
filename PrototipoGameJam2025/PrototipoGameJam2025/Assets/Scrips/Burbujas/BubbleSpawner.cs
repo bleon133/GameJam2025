@@ -75,7 +75,6 @@ public class BubbleSpawner : MonoBehaviour
             return;
         }
 
-        // Selecciona aleatoriamente un prefab de la lista
         int randomIndex = Random.Range(0, bubblePrefabs.Count);
         GameObject selectedPrefab = bubblePrefabs[randomIndex];
 
@@ -83,20 +82,17 @@ public class BubbleSpawner : MonoBehaviour
         float randomX = Random.Range(minX, maxX);
         Vector2 spawnPosition = new Vector2(randomX, ySpawn);
 
-        // Instancia la burbuja en la posición calculada
         Instantiate(selectedPrefab, spawnPosition, Quaternion.identity);
     }
 
     public void DetenerSpawn()
     {
-        // Detenemos la corutina principal
         if (spawnerCoroutine != null)
         {
             StopCoroutine(spawnerCoroutine);
             spawnerCoroutine = null;
         }
 
-        // Detenemos la corutina de la oleada actual (si existe)
         if (waveCoroutine != null)
         {
             StopCoroutine(waveCoroutine);

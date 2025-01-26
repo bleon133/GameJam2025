@@ -9,6 +9,7 @@ TagManager:
   - Limpiador
   - PlayerBody
   - BallonPlayer
+  - Objeto
   layers:
   - Default
   - TransparentFX

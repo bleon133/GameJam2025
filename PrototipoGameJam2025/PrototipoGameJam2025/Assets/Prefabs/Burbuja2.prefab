@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: b8e901a995305ab4a991f2f4e53992b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ebaebd566e3bb44b5cd600a574b82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuerzaHaciaArriba: 10
-  fuerzaRebote: 10
+  fuerzaHaciaArriba: 8
+  fuerzaRebote: 8
   sonidoColision: {fileID: 8300000, guid: c7b8d5a5fd11faa418e7c26d5ba203cf, type: 3}
   bubbleExplosionAnimation: explosionburbuja2
 --- !u!50 &1374336280541433209

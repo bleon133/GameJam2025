@@ -8,10 +8,15 @@ public class CuerpoDelPlayer : MonoBehaviour
     [SerializeField] private PlayerController playerControllerContrario;
     [SerializeField] private GameObject GloboPlayerContrario;
     [SerializeField] private GameObject PanelReinicio;
+    [SerializeField] private GameObject ImagenPlayerOtherWin;
+    [SerializeField] private GameObject ImagenPlayerMeOver;
     [SerializeField] private BubbleSpawner spawner1;
     [SerializeField] private BubbleSpawner spawner2;
     [SerializeField] private TimeScaleManager timescaleManager;
     [SerializeField] private CuerpoDelPlayer playerContrario;
+    [SerializeField] AudioSource musicaFondo;
+    [SerializeField] private AudioClip sonidoFinPartida;
+
 
     private Animator animator;
     [SerializeField] private string bubbleFallingAnimation;
@@ -33,6 +38,13 @@ public class CuerpoDelPlayer : MonoBehaviour
         {
             timescaleManager.PauseGame();
             PanelReinicio.SetActive(true);
+            ImagenPlayerOtherWin.SetActive(true);
+            ImagenPlayerMeOver.SetActive(true);
+            musicaFondo.Pause();
+            if (sonidoFinPartida != null)
+            {
+                AudioSource.PlayClipAtPoint(sonidoFinPartida, transform.position);
+            }
         }
     }
 

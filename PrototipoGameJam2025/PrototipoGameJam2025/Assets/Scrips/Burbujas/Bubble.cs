@@ -51,6 +51,21 @@ public class Bubble : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+        }else if (collision.gameObject.CompareTag("Objeto"))
+        {
+            if (sonidoColision != null)
+            {
+                AudioSource.PlayClipAtPoint(sonidoColision, transform.position);
+            }
+            if (animator != null)
+            {
+                animator.Play(bubbleExplosionAnimation);
+                StartCoroutine(DestroyAfterAnimation());
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
