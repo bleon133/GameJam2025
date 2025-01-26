@@ -18,6 +18,9 @@ public class BubbleSpawner : MonoBehaviour
     [Header("Variación de Spawn")]
     [SerializeField] private float tiempoEntreBurbujasDentroOleada = 0.1f; // Tiempo entre burbujas dentro de una oleada
 
+    [Header("Retardo inicial")]
+    [SerializeField] private float tiempoInicialDeEspera = 8f;   // Tiempo inicial de espera antes de spawnear
+
     private Coroutine spawnerCoroutine;  // Corutina principal que inicia oleadas
     private Coroutine waveCoroutine;     // Corutina de la oleada actual
 
@@ -43,6 +46,9 @@ public class BubbleSpawner : MonoBehaviour
 
     private IEnumerator SpawnBubblesInWaves()
     {
+        // Espera el tiempo inicial configurado antes de comenzar la generación de burbujas
+        yield return new WaitForSeconds(tiempoInicialDeEspera);
+
         while (true)
         {
             // Inicia una oleada de burbujas y guarda la referencia
