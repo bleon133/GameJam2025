@@ -28,21 +28,38 @@ public class AnimacionVsInicial : MonoBehaviour
         Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
         animatorBurbujaA = burbujaPersonajeA.GetComponent<Animator>();
         animatorBurbujaB = burbujaPersonajeB.GetComponent<Animator>();
+        
     }
 
     void Update()
     {
         tiempoTranscurrido += Time.deltaTime;
-        if (tiempoTranscurrido > timeAnimacion1 && flag == false)
+        if (tiempoTranscurrido > timeAnimacion1 && !flag)
         {
             animatorBurbujaA.Play(stringAnimacionA);
             animatorBurbujaB.Play(stringAnimacionB);
+
             AudioSource.PlayClipAtPoint(peleasonido, transform.position);
+
             flag = true;
-        }else if (tiempoTranscurrido > timeAnimacion2 && flag == true)
+
+            float delay = timeAnimacion2 - timeAnimacion1;
+            Invoke("soundMusic", delay);
+        }
+    }
+
+    void soundMusic()
+    {
+        if (panelVS != null)
         {
             Destroy(panelVS);
+        }
+
+        if (fondoMusica != null && !fondoMusica.isPlaying)
+        {
             fondoMusica.Play();
         }
     }
+
+
 }
