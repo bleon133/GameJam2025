@@ -6,7 +6,7 @@ using UnityEngine;
 public class VolumeIniciation : MonoBehaviour
 {
     private void Awake()
-        {
+    {
         VolumeManager.Instance.ApplyGlobalVolume();
     }
 }

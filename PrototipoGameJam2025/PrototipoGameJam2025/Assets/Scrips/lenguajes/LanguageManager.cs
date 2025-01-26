@@ -15,6 +15,12 @@ public class LanguageManager : MonoBehaviour
     public TextMeshProUGUI volumentxt; // Referencia al texto del botón "volumen".
     public TextMeshProUGUI tutorialBtn; // Referencia al texto del botón "tutotial".
     public TextMeshProUGUI goBackBtn; // Referencia al texto del botón "volver".
+    public TextMeshProUGUI scene1; // Referencia al texto del botón "scene1".
+    public TextMeshProUGUI scene2; // Referencia al texto del botón "scene2".
+    public TextMeshProUGUI scene3; // Referencia al texto del botón "scene3".
+    public TextMeshProUGUI scene4; // Referencia al texto del botón "scene4".
+    public TextMeshProUGUI scene5; // Referencia al texto del botón "scene5".
+    public TextMeshProUGUI reanudarbtn; // Referencia al texto del botón "reanudar".
 
     public TMP_FontAsset fontES;  // Fuente para español (y similares)
     public TMP_FontAsset fontCRS; // Fuente para coreano
