@@ -24,7 +24,7 @@ public class PruebaGravedad : MonoBehaviour
         {
             if (tiempoTranscurrido >= proximoIncremento)
             {
-                Debug.Log("Se cumplieron " + proximoIncremento + " segundos.");
+                //Debug.Log("Se cumplieron " + proximoIncremento + " segundos.");
 
                 // Aumentamos la gravedad si no hemos llegado al máximo
                 if (Rigidbody2D.gravityScale <= gravedadMaxima)
