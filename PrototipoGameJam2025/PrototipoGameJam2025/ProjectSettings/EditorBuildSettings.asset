@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/EsambladoEsqueleto.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: b7fbd89eecf51984893474d560a14ac4
+  - enabled: 1
+    path: Assets/Scenes/Cinematics.unity
+    guid: 487e812c6f3f9706fb9937896dc5622b
+  - enabled: 1
+    path: Assets/Scenes/EsambladoEsqueleto.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
