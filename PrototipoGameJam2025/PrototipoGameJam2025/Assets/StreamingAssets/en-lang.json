@@ -27,6 +27,47 @@
     {
       "key": "regresar",
       "value": "Go Back"
+    },
+    {
+      "key": "scene1",
+      "value": "At the beginning of time, the fish society performed chtonic rituals to get likes, but they didn't count on what would happen."
+    },
+    {
+      "key": "scene2",
+      "value": "Cthulhu arrived and brought chaos with him, bringing destruction to the fish society, but some offerings changed the course of history."
+    },
+    {
+      "key": "scene3",
+      "value": "Cthulhu turned out to worship the traditional and cultural food of the fish society, reducing the number of sacrifices to only one per year."
+    },
+    {
+      "key": "scene4",
+      "value": "The fish society decided to carry out sacrifices on the basis of dueling bubbles, so that only the most capable survive and contribute the most to society."
+    },
+    {
+      "key": "scene5",
+      "value": "The new champions for the duel of who will be sacrificed to Cthulhu have been decided between you and your best friend!"
+    },
+    {
+      "key": "reanudar",
+      "value": "Resume"
+
+    },
+    {
+      "key": "configuration2",
+      "value": "Configuration"
+    },
+    {
+      "key": "quitgame",
+      "value": "Exit"
+    },
+    {
+      "key": "finishReboot",
+      "value": "Restart"
+    },
+    {
+      "key": "finishQuit",
+      "value": "Exit"
     }
   ]
 }

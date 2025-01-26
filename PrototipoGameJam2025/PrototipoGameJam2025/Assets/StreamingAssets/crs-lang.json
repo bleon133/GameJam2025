@@ -14,19 +14,60 @@
     },
     {
       "key": "language",
-      "value": "Lenguaje:"
+      "value": "언어:"
     },
     {
       "key": "volume",
-      "value": "Volumen:"
+      "value": "볼륨:"
     },
     {
       "key": "tutorial",
-      "value": "Tutorial"
+      "value": "튜토리얼"
     },
     {
       "key": "regresar",
-      "value": "Regresar"
+      "value": "돌아가"
+    },
+    {
+      "key": "scene1",
+      "value": "초창기에는 어류 사회에서 '좋아요'를 얻기 위해 음양 의식을 행했지만, 어떤 일이 일어날지 예상하지 못했습니다."
+    },
+    {
+      "key": "scene2",
+      "value": "크툴루는 도착하자마자 혼돈을 가져와 물고기 사회를 파괴했지만, 일부 제물은 역사의 흐름을 바꾸어 놓았습니다."
+    },
+    {
+      "key": "scene3",
+      "value": "크툴루는 물고기 사회의 전통적이고 문화적인 음식을 숭배하는 것으로 밝혀져 희생의 횟수를 1년에 단 한 번으로 줄였습니다."
+    },
+    {
+      "key": "scene4",
+      "value": "물고기 사회는 가장 유능한 사람만이 살아남아 사회에 가장 많이 기여할 수 있도록 결투 거품을 기준으로 희생을 수행하기로 결정했습니다."
+    },
+    {
+      "key": "scene5",
+      "value": "크툴루에게 제물이 될 결투의 새로운 챔피언이 여러분과 가장 친한 친구 사이에서 결정되었습니다!"
+    },
+    {
+      "key": "reanudar",
+      "value": "재개"
+
+    },
+    {
+      "key": "configuration2",
+      "value": "게임 세팅"
+    },
+    {
+      "key": "quitgame",
+      "value": "나가기"
+    },
+    {
+      "key": "finishReboot",
+      "value": "다시 시도"
+    },
+    {
+      "key": "finishQuit",
+      "value": "나가기"
     }
   ]
 }
