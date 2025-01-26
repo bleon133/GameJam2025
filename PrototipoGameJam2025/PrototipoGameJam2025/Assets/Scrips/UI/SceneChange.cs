@@ -9,4 +9,15 @@ public class SceneChange : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(nombreEscena);
     }
+
+    public void SalirDelJuego()
+    {
+        Application.Quit();
+
+        // Para detener el juego en el Editor de Unity
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+    }
+
 }
