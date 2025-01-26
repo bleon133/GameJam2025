@@ -68,6 +68,10 @@
     {
       "key": "finishQuit",
       "value": "Exit"
+    },
+    {
+      "key": "tutorial1",
+      "value": "Player A uses A/D and B uses the ←/→ arrows. The goal is to keep them from falling and their balloons from popping."
     }
   ]
 }

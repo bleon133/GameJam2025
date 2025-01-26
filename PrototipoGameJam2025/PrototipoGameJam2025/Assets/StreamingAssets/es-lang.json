@@ -68,6 +68,10 @@
     {
       "key": "finishQuit",
       "value": "Salir"
+    },
+    {
+      "key": "tutorial1",
+      "value": "Jugador A usa A/D y B las flechas ←/→. El objetivo es evitar que caigan y que sus globos exploten."
     }
   ]
 }
