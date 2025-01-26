@@ -887,6 +887,7 @@ MonoBehaviour:
   - {fileID: 5730879453468303237, guid: 449b6b75c6003fa469a1212ceb1825cd, type: 3}
   - {fileID: 5730879453468303237, guid: e4fd8e8320fd39d4c8d3358fcc5e75d6, type: 3}
   - {fileID: 5730879453468303237, guid: e0d8052dff0097b41bb9fba989435d3f, type: 3}
+  - {fileID: 5730879453468303237, guid: f56ab76493092ce40b021abb0183dbf0, type: 3}
   tiempoEntreOleadas: 1
   burbujasPorOleada: 8
   minX: -25
@@ -2909,6 +2910,7 @@ MonoBehaviour:
   - {fileID: 5730879453468303237, guid: 449b6b75c6003fa469a1212ceb1825cd, type: 3}
   - {fileID: 5730879453468303237, guid: e4fd8e8320fd39d4c8d3358fcc5e75d6, type: 3}
   - {fileID: 5730879453468303237, guid: e0d8052dff0097b41bb9fba989435d3f, type: 3}
+  - {fileID: 5730879453468303237, guid: f56ab76493092ce40b021abb0183dbf0, type: 3}
   tiempoEntreOleadas: 1
   burbujasPorOleada: 8
   minX: -25
@@ -3378,6 +3380,7 @@ MonoBehaviour:
   - {fileID: 5730879453468303237, guid: 449b6b75c6003fa469a1212ceb1825cd, type: 3}
   - {fileID: 5730879453468303237, guid: e4fd8e8320fd39d4c8d3358fcc5e75d6, type: 3}
   - {fileID: 5730879453468303237, guid: e0d8052dff0097b41bb9fba989435d3f, type: 3}
+  - {fileID: 5730879453468303237, guid: f56ab76493092ce40b021abb0183dbf0, type: 3}
   tiempoEntreOleadas: 1
   burbujasPorOleada: 8
   minX: -25
