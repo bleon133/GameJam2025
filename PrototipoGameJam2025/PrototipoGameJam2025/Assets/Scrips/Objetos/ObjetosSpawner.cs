@@ -18,6 +18,8 @@ public class ObjetosSpawner : MonoBehaviour
     [Header("Variación de Spawn")]
     [SerializeField] private float tiempoEntreObjetosDentroOleada = 0.1f;
 
+    [Header("Retardo inicial")]
+    [SerializeField] private float tiempoInicialDeEspera = 10f;
 
     private Coroutine spawnerCoroutine; 
     private Coroutine waveCoroutine;
@@ -46,6 +48,9 @@ public class ObjetosSpawner : MonoBehaviour
     {
         while (true)
         {
+            // Espera el tiempo inicial configurado antes de comenzar la generación de burbujas
+            yield return new WaitForSeconds(tiempoInicialDeEspera);
+
             // Inicia una oleada de burbujas y guarda la referencia
             waveCoroutine = StartCoroutine(SpawnWave());
 
