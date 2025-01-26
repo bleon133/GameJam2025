@@ -1,6 +1,32 @@
-{
-    "title": "Configuration...",
-    "startButton": "Start...",
-    "exitButton": "Exit..."
-  }
-  
+  {
+  "items": [
+    {
+      "key": "configuration",
+      "value": "Configuration..."
+    },
+    {
+      "key": "startButton",
+      "value": "Start..."
+    },
+    {
+      "key": "exitButton",
+      "value": "Exit..."
+    },
+    {
+      "key": "language",
+      "value": "Languaje:"
+    },
+    {
+      "key": "volume",
+      "value": "Sound:"
+    },
+    {
+      "key": "tutorial",
+      "value": "Tutorial"
+    },
+    {
+      "key": "regresar",
+      "value": "Go Back"
+    }
+  ]
+}
