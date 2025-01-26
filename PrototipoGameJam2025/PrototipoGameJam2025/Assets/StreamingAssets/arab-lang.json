@@ -1,0 +1,32 @@
+{
+    "items": [
+      {
+        "key": "configuration",
+        "value": "환영합니다"
+      },
+      {
+        "key": "startButton",
+        "value": "시작"
+      },
+      {
+        "key": "exitButton",
+        "value": "나가기"
+      },
+      {
+        "key": "language",
+        "value": "Lenguaje:"
+      },
+      {
+        "key": "volume",
+        "value": "Volumen:"
+      },
+      {
+        "key": "tutorial",
+        "value": "Tutorial"
+      },
+      {
+        "key": "regresar",
+        "value": "Regresar"
+      }
+    ]
+  }

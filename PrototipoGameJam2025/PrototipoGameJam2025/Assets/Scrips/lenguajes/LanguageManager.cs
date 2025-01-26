@@ -2,21 +2,31 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class LanguageManager : MonoBehaviour
 {
     public static LanguageManager Instance; // Singleton para acceder desde otros scripts.
 
-    public Text titleText; // Referencia al texto del t�tulo.
-    public Text startButtonText; // Referencia al texto del bot�n "Comenzar".
-    public Text exitButtonText; // Referencia al texto del bot�n "Salir".
+    public TextMeshProUGUI configbtn; // Referencia al texto del título.
+    public TextMeshProUGUI startButtonText; // Referencia al texto del botón "Comenzar".
+    public TextMeshProUGUI exitButtonText; // Referencia al texto del botón "Salir".
+    public TextMeshProUGUI idiomatxt; // Referencia al texto del botón "idioma".
+    public TextMeshProUGUI volumentxt; // Referencia al texto del botón "volumen".
+    public TextMeshProUGUI tutorialBtn; // Referencia al texto del botón "tutotial".
+    public TextMeshProUGUI goBackBtn; // Referencia al texto del botón "volver".
+
+    public TMP_FontAsset fontES;  // Fuente para español (y similares)
+    public TMP_FontAsset fontCRS; // Fuente para coreano
+    public TMP_FontAsset fontARAB; // Fuente para árabe
 
     private Dictionary<string, string> localizedTexts; // Diccionario para almacenar los textos traducidos.
     private string currentLanguage = "es"; // Idioma por defecto.
+    private string variablesFilePath; // Ruta al archivo variables.json.
 
     private void Awake()
     {
-        // Implementamos el patr�n Singleton.
+        // Implementamos el patrón Singleton.
         if (Instance == null)
         {
             Instance = this;
@@ -25,20 +35,91 @@ public class LanguageManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
 
-        LoadLanguage(currentLanguage); // Cargar idioma por defecto.
+        // Ruta del archivo variables.json.
+        variablesFilePath = Path.Combine(Application.streamingAssetsPath, "variables.json");
+
+        LoadVariables(); // Cargar el idioma desde variables.json.
+        LoadLanguage(currentLanguage); // Cargar el idioma por defecto.
     }
 
-    // M�todo para cargar el idioma desde un archivo JSON.
+    private void LoadVariables()
+    {
+        if (File.Exists(variablesFilePath))
+        {
+            string jsonContent = File.ReadAllText(variablesFilePath);
+            VariablesData variables = JsonUtility.FromJson<VariablesData>(jsonContent);
+            currentLanguage = variables.language; // Establecer el idioma desde variables.json.
+        }
+        else
+        {
+            Debug.LogWarning($"Archivo variables.json no encontrado. Usando idioma por defecto: {currentLanguage}");
+        }
+    }
+
+    private void SaveVariables()
+    {
+        VariablesData variables = new VariablesData
+        {
+            volume = 100, // Puedes agregar lógica para obtener el volumen dinámicamente si lo necesitas.
+            language = currentLanguage
+        };
+
+        string jsonContent = JsonUtility.ToJson(variables, true);
+        File.WriteAllText(variablesFilePath, jsonContent);
+    }
+
+    private void ApplyFont()
+    {
+        TMP_FontAsset selectedFont = fontES; // Fuente por defecto
+
+        switch (currentLanguage)
+        {
+            case "es":
+                selectedFont = fontES; // Español o similar
+                break;
+            case "en":
+                selectedFont = fontES; // Español o similar
+                break;
+            case "crs":
+                selectedFont = fontCRS; // Coreano
+                break;
+            case "arab":
+                selectedFont = fontARAB; // Árabe
+                break;
+            default:
+                Debug.LogWarning($"Idioma no reconocido: {currentLanguage}, usando fuente por defecto.");
+                break;
+        }
+
+        // Asigna la fuente a los textos
+        configbtn.font = selectedFont;
+        startButtonText.font = selectedFont;
+        exitButtonText.font = selectedFont;
+        configbtn.font = selectedFont;
+        startButtonText.font = selectedFont;
+        exitButtonText.font = selectedFont;
+        idiomatxt.font = selectedFont;
+        volumentxt.font = selectedFont;
+        tutorialBtn.font = selectedFont;
+        goBackBtn.font = selectedFont;
+    }
+
+    // Método para cargar el idioma desde un archivo JSON.
     public void LoadLanguage(string languageCode)
     {
+        currentLanguage = languageCode; // Actualizar el idioma actual.
+        SaveVariables(); // Guardar el idioma en variables.json.
+
         string filePath = Path.Combine(Application.streamingAssetsPath, $"{languageCode}-lang.json");
 
         if (File.Exists(filePath))
         {
             string jsonContent = File.ReadAllText(filePath);
-            localizedTexts = JsonUtility.FromJson<LocalizationData>(jsonContent).ToDictionary();
+            LocalizationData localizationData = JsonUtility.FromJson<LocalizationData>(jsonContent);
+            localizedTexts = localizationData.ToDictionary(); // Convierte a diccionario.
 
             ApplyLocalization(); // Actualiza los textos en la UI.
         }
@@ -53,13 +134,19 @@ public class LanguageManager : MonoBehaviour
     {
         if (localizedTexts != null)
         {
-            titleText.text = GetLocalizedText("title");
+            configbtn.text = GetLocalizedText("configuration");
             startButtonText.text = GetLocalizedText("startButton");
             exitButtonText.text = GetLocalizedText("exitButton");
+            idiomatxt.text = GetLocalizedText("language");
+            volumentxt.text = GetLocalizedText("volume");
+            tutorialBtn.text = GetLocalizedText("tutorial");
+            goBackBtn.text = GetLocalizedText("regresar");
+
+            ApplyFont(); // Cambia la fuente según el idioma
         }
     }
 
-    // Devuelve el texto localizado para una clave espec�fica.
+    // Devuelve el texto localizado para una clave específica.
     public string GetLocalizedText(string key)
     {
         if (localizedTexts != null && localizedTexts.TryGetValue(key, out string value))
@@ -70,6 +157,14 @@ public class LanguageManager : MonoBehaviour
         Debug.LogWarning($"Clave de texto no encontrada: {key}");
         return key; // Devuelve la clave como fallback.
     }
+}
+
+// Clase para manejar los datos en variables.json.
+[System.Serializable]
+public class VariablesData
+{
+    public int volume; // Volumen del juego.
+    public string language; // Idioma actual.
 }
 
 // Clase auxiliar para deserializar el JSON.

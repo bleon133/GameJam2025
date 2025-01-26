@@ -1,6 +1,32 @@
 {
-    "title": "Configuración...",
-    "startButton": "Jugar...",
-    "exitButton": "Salir..."
-  }
-  
+  "items": [
+    {
+      "key": "configuration",
+      "value": "Configuración..."
+    },
+    {
+      "key": "startButton",
+      "value": "Jugar..."
+    },
+    {
+      "key": "exitButton",
+      "value": "Salir..."
+    },
+    {
+      "key": "language",
+      "value": "Lenguaje:"
+    },
+    {
+      "key": "volume",
+      "value": "Volumen:"
+    },
+    {
+      "key": "tutorial",
+      "value": "Tutorial"
+    },
+    {
+      "key": "regresar",
+      "value": "Regresar"
+    }
+  ]
+}
