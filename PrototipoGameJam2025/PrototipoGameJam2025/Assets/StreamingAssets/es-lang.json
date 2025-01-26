@@ -27,6 +27,47 @@
     {
       "key": "regresar",
       "value": "Regresar"
+    },
+    {
+      "key": "scene1",
+      "value": "Al inicio de los tiempos, la sociedad pez hacía rituales chtónicos para obtener gustos, pero no contaban con lo que pasaría."
+    },
+    {
+      "key": "scene2",
+      "value": "Cthulhu llegó y trajo caos consigo, trayendo destrucción a la pez sociedad, pero unas ofrendas cambiaron el rumbo de la historia."
+    },
+    {
+      "key": "scene3",
+      "value": "Cthulhu resultó adorando la comida tradicional y cultural de la pez sociedad, reduciendo el número de sacrificios a solo uno por año."
+    },
+    {
+      "key": "scene4",
+      "value": "La pez sociedad decidió llevar a cabo los sacrificios en base a duelos de burbujas, para que solo el más capaz sobreviva y contribuya más a la sociedad."
+    },
+    {
+      "key": "scene5",
+      "value": "¡Los nuevos campeones para el duelo de quién será sacrificado a Cthulhu han sido decididos entre tú y tu mejor amigo!"
+    },
+    {
+      "key": "reanudar",
+      "value": "Reanudar"
+
+    },
+    {
+      "key": "configuration2",
+      "value": "Configuración"
+    },
+    {
+      "key": "quitgame",
+      "value": "Salir"
+    },
+    {
+      "key": "finishReboot",
+      "value": "Reiniciar"
+    },
+    {
+      "key": "finishQuit",
+      "value": "Salir"
     }
   ]
 }
