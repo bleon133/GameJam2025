@@ -2,24 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BubbleSpawner : MonoBehaviour
+public class ObjetosSpawner : MonoBehaviour
 {
     [Header("Prefabs y Configuración de Spawn")]
     // Cambiado de un único prefab a una lista de prefabs
-    [SerializeField] private List<GameObject> bubblePrefabs; // Lista de prefabs de burbujas
-    [SerializeField] private float tiempoEntreOleadas = 4f;       // Tiempo entre cada oleada de burbujas
-    [SerializeField] private int burbujasPorOleada = 3;           // Cantidad de burbujas por oleada
+    [SerializeField] private List<GameObject> objectsPrefabs;
+    [SerializeField] private float tiempoEntreOleadas = 4f;      
+    [SerializeField] private int objetosPorOleada = 3;          
 
     [Header("Área de Spawn")]
     [SerializeField] private float minX = -25f;
     [SerializeField] private float maxX = 25f;
-    [SerializeField] private float ySpawn = -15f;                 // Altura desde donde nacen las burbujas
+    [SerializeField] private float ySpawn = 15f;
 
     [Header("Variación de Spawn")]
-    [SerializeField] private float tiempoEntreBurbujasDentroOleada = 0.1f; // Tiempo entre burbujas dentro de una oleada
+    [SerializeField] private float tiempoEntreObjetosDentroOleada = 0.1f;
 
-    private Coroutine spawnerCoroutine;  // Corutina principal que inicia oleadas
-    private Coroutine waveCoroutine;     // Corutina de la oleada actual
+
+    private Coroutine spawnerCoroutine; 
+    private Coroutine waveCoroutine;
 
     private void Start()
     {
@@ -58,25 +59,25 @@ public class BubbleSpawner : MonoBehaviour
 
     private IEnumerator SpawnWave()
     {
-        for (int i = 0; i < burbujasPorOleada; i++)
+        for (int i = 0; i < objetosPorOleada; i++)
         {
             SpawnBubble();
             // Espera un breve tiempo antes de spawnear la siguiente burbuja dentro de la oleada
-            yield return new WaitForSeconds(tiempoEntreBurbujasDentroOleada);
+            yield return new WaitForSeconds(tiempoEntreObjetosDentroOleada);
         }
     }
 
     private void SpawnBubble()
     {
         // Verifica que la lista de prefabs no esté vacía
-        if (bubblePrefabs == null || bubblePrefabs.Count == 0)
+        if (objectsPrefabs == null || objectsPrefabs.Count == 0)
         {
             Debug.LogWarning("No se han asignado prefabs de burbujas en el BubbleSpawner.");
             return;
         }
 
-        int randomIndex = Random.Range(0, bubblePrefabs.Count);
-        GameObject selectedPrefab = bubblePrefabs[randomIndex];
+        int randomIndex = Random.Range(0, objectsPrefabs.Count);
+        GameObject selectedPrefab = objectsPrefabs[randomIndex];
 
         // Calcula una posición aleatoria en X dentro del rango especificado
         float randomX = Random.Range(minX, maxX);
