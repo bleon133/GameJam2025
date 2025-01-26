@@ -19,12 +19,12 @@ public class ParallaxManager : MonoBehaviour
             if (layer == null) continue; // Ignorar capas nulas.
 
             // Imprimimos la posición actual para depuración.
-            Debug.Log($"Capa: {layer.name}, Posición Y actual: {layer.transform.position.y}");
+            //Debug.Log($"Capa: {layer.name}, Posición Y actual: {layer.transform.position.y}");
 
             // Si la capa supera el umbral, la teletransportamos.
             if (layer.transform.position.y >= teleportThreshold - delayTeleport)
             {
-                Debug.Log($"Teletransportando {layer.name} desde {layer.transform.position.y} a {teleportTargetY}");
+                //Debug.Log($"Teletransportando {layer.name} desde {layer.transform.position.y} a {teleportTargetY}");
 
                 layer.transform.position = new Vector3(
                     layer.transform.position.x,

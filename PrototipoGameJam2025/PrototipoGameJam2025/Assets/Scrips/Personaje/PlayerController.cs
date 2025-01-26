@@ -9,29 +9,41 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float newGravityScale = 5f; //Nueva gravedad
     [SerializeField] private float newMass = 2f; //Nueva masa
 
-    // Almacena la velocidad cuando se pausa
-    private Vector2 velocidadGuardada;
+
+    private float tiempoTranscurrido = 0f;
+    private float gravedadMaxima = 5f;
+
+    private float valorRuptura = 20f;
+
+    // Momento en el que sucederá el siguiente incremento.
+    private float proximoIncremento = 22f;
+
+    void Update()
+    {
+        tiempoTranscurrido += Time.deltaTime;
+
+        if (tiempoTranscurrido > valorRuptura)
+        {
+            if (tiempoTranscurrido >= proximoIncremento)
+            {
+                Debug.Log("Se cumplieron " + proximoIncremento + " segundos.");
+
+                // Aumentamos la gravedad si no hemos llegado al máximo
+                if (rbPlayer.gravityScale <= gravedadMaxima)
+                {
+                    rbPlayer.gravityScale += 0.1f;
+                }
+
+                // Fijamos el próximo incremento sumando 10 al anterior
+                proximoIncremento += 2f;
+            }
+        }
+    }
 
     // Para cuando el globo del player se destruye.
     public void DropFaster()
     {
         rbPlayer.mass = newMass;
         rbPlayer.gravityScale = newGravityScale;
-    }
-
-    public void PausarMovimiento()
-    {
-        // Guardamos la velocidad en el momento de la pausa
-        velocidadGuardada = rbPlayer.velocity;
-        // Desactivamos el Rigidbody2D para que no le afecte la física
-        rbPlayer.simulated = false;
-    }
-
-    public void ReanuarMovimiento()
-    {
-        // Reactivamos la simulación
-        rbPlayer.simulated = true;
-        // Restauramos la velocidad que tenía antes de pausar
-        rbPlayer.velocity = velocidadGuardada;
     }
 }

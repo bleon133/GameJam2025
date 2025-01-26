@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ebaebd566e3bb44b5cd600a574b82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuerzaHaciaArriba: 10
-  fuerzaRebote: 10
+  fuerzaHaciaArriba: 12
+  fuerzaRebote: 12
   sonidoColision: {fileID: 8300000, guid: c7b8d5a5fd11faa418e7c26d5ba203cf, type: 3}
   bubbleExplosionAnimation: explosionBurbuja1
 --- !u!50 &1374336280541433209
