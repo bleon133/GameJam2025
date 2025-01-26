@@ -21,6 +21,10 @@ public class LanguageManager : MonoBehaviour
     public TextMeshProUGUI scene4; // Referencia al texto del botón "scene4".
     public TextMeshProUGUI scene5; // Referencia al texto del botón "scene5".
     public TextMeshProUGUI reanudarbtn; // Referencia al texto del botón "reanudar".
+    public TextMeshProUGUI configbtn2; // Referencia al texto del botón "configbtn2".
+    public TextMeshProUGUI quitgame; // Referencia al texto del botón "quitgame".
+    public TextMeshProUGUI finishReboot; // Referencia al texto del botón "finishReboot".
+    public TextMeshProUGUI finishQuit; // Referencia al texto del botón "finishQuit".
 
     public TMP_FontAsset fontES;  // Fuente para español (y similares)
     public TMP_FontAsset fontCRS; // Fuente para coreano
@@ -111,6 +115,16 @@ public class LanguageManager : MonoBehaviour
         volumentxt.font = selectedFont;
         tutorialBtn.font = selectedFont;
         goBackBtn.font = selectedFont;
+        scene1.font = selectedFont;
+        scene2.font = selectedFont;
+        scene3.font = selectedFont;
+        scene4.font = selectedFont;
+        scene5.font = selectedFont;
+        reanudarbtn.font = selectedFont;
+        configbtn2.font = selectedFont;
+        quitgame.font = selectedFont;
+        finishReboot.font = selectedFont;
+        finishQuit.font = selectedFont;
     }
 
     // Método para cargar el idioma desde un archivo JSON.
@@ -147,7 +161,16 @@ public class LanguageManager : MonoBehaviour
             volumentxt.text = GetLocalizedText("volume");
             tutorialBtn.text = GetLocalizedText("tutorial");
             goBackBtn.text = GetLocalizedText("regresar");
-
+            scene1.text = GetLocalizedText("scene1");
+            scene2.text = GetLocalizedText("scene2");
+            scene3.text = GetLocalizedText("scene3");
+            scene4.text = GetLocalizedText("scene4");
+            scene5.text = GetLocalizedText("scene5");
+            reanudarbtn.text = GetLocalizedText("reanudar");
+            configbtn2.text = GetLocalizedText("configuration2");
+            quitgame.text = GetLocalizedText("quitgame");
+            finishReboot.text = GetLocalizedText("finishReboot");
+            finishQuit.text = GetLocalizedText("finishQuit");
             ApplyFont(); // Cambia la fuente según el idioma
         }
     }
