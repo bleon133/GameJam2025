@@ -8,6 +8,14 @@ public class Bubble : MonoBehaviour
     [SerializeField] private float fuerzaRebote = 10f;
     private Rigidbody2D rb;
 
+    public static List<Bubble> allBubbles = new List<Bubble>();
+
+    [SerializeField] private AudioClip sonidoColision;
+
+    private Animator animator;
+
+    [SerializeField] private string bubbleExplosionAnimation;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -17,6 +25,7 @@ public class Bubble : MonoBehaviour
     {
         // La burbuja se impulsa hacia arriba una vez al aparecer
         rb.AddForce(Vector2.up * fuerzaHaciaArriba, ForceMode2D.Impulse);
+        animator = GetComponent<Animator>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,8 +37,43 @@ public class Bubble : MonoBehaviour
             direccion.Normalize();
             collision.rigidbody.AddForce(direccion * fuerzaRebote, ForceMode2D.Impulse);
 
-            // Destruir la burbuja en cuanto colisione con el jugador
-            Destroy(gameObject);
+            if (sonidoColision != null)
+            {
+                AudioSource.PlayClipAtPoint(sonidoColision, transform.position);
+            }
+
+            if (animator != null)
+            {
+                animator.Play(bubbleExplosionAnimation);
+                StartCoroutine(DestroyAfterAnimation());
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
+    }
+
+    private IEnumerator DestroyAfterAnimation()
+    {
+        // Esperar un frame para asegurarse de que el Animator ha cambiado de estado
+        yield return null;
+
+        // Obtener información del estado actual del Animator en la capa 0
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        float animationDuration = stateInfo.length;
+
+        if (stateInfo.loop)
+        {
+            yield return new WaitForSeconds(animationDuration);
+        }
+        else
+        {
+            yield return new WaitForSeconds(animationDuration);
+        }
+
+        // Destruir el objeto
+        Destroy(gameObject);
     }
 }

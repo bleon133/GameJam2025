@@ -8,11 +8,14 @@ public class MovimientoPersonaje : MonoBehaviour
     [Header("Parámetros de Movimiento")]
     [SerializeField] private float moveSpeed = 5f; // Velocidad de movimiento
 
-    private Rigidbody2D _rb2D;
+    private Rigidbody2D rb2D;
+    private SpriteRenderer spriteRenderer;
+
 
     private void Awake()
     {
-        _rb2D = GetComponent<Rigidbody2D>();
+        rb2D = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -22,15 +25,32 @@ public class MovimientoPersonaje : MonoBehaviour
         // Si se mantiene presionada la tecla A
         if (Input.GetKey(KeyCode.A))
         {
-            movement = -1f; 
+            movement = -1f;
+            Flip(true);
         }
         // Si se mantiene presionada la tecla D
         else if (Input.GetKey(KeyCode.D))
         {
-            movement = 1f; 
+            movement = 1f;
+            Flip(false);
         }
 
         // Aplicamos la velocidad al Rigidbody2D
-        _rb2D.velocity = new Vector2(movement * moveSpeed, _rb2D.velocity.y);
+        rb2D.velocity = new Vector2(movement * moveSpeed, rb2D.velocity.y);
+    }
+
+    private void Flip(bool isFacingLeft)
+    {
+        Vector3 localScale = transform.localScale;
+        if (isFacingLeft && localScale.x > 0)
+        {
+            localScale.x *= -1;
+            transform.localScale = localScale;
+        }
+        else if (!isFacingLeft && localScale.x < 0)
+        {
+            localScale.x *= -1;
+            transform.localScale = localScale;
+        }
     }
 }
