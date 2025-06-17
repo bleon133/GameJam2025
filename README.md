@@ -39,7 +39,7 @@ Juega directamente en tu navegador:
 
 ## Screenshots
 
-![Pantalla principal](./screenshots/intro.png)
+![Pantalla principal](./screenshots/chutulu-jamboree.png)
 ![Combate 1v1](./screenshots/fight.png)
 
 ---
