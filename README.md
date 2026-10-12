@@ -47,11 +47,11 @@
 
 ## Qué es
 
-**Cthulhu Jamboree** es un juego de **combate local 1v1** para dos jugadores, desarrollado en la **Global Game Jam 2025**. Cada jugador controla un pez: uno **cool** y otro **uncool**.
+Cthulhu Jamboree es un juego de combate local 1v1 para dos jugadores, hecho en la Global Game Jam 2025. Cada jugador controla un pez: uno cool y otro uncool.
 
-La premisa nace de la propia mitología del juego: la sociedad pez adoraba a Cthulhu con sacrificios, hasta que descubrieron que al dios le gustaba su comida tradicional. Desde entonces, los sacrificios se deciden con **duelos de burbujas** — y en esta partida, los campeones elegidos son tú y tu mejor amigo.
+La premisa sale de la mitología que da nombre al juego. La sociedad pez adoraba a Cthulhu con sacrificios hasta que descubrió que al dios le gustaba su comida tradicional, y desde entonces decide los sacrificios con duelos de burbujas. En esta partida, los campeones elegidos son tú y tu mejor amigo.
 
-El juego está construido con **Unity 2022.3.56f1** y se publicó para **HTML5** en itch.io.
+El juego está hecho con Unity 2022.3.56f1 y se publicó para HTML5 en itch.io.
 
 <p align="center">
   <a href="https://crimpatches.itch.io/chutulu-jamboree">
@@ -64,11 +64,11 @@ El juego está construido con **Unity 2022.3.56f1** y se publicó para **HTML5**
 
 ## Cómo se juega
 
-Cada jugador empieza colgando de un **globo** que lo mantiene a flote. El objetivo es que el **globo del rival se reviente**: cuando eso pasa, su dueño cae al vacío y pierde.
+Cada jugador empieza colgando de un globo que lo mantiene a flote. El objetivo es reventar el globo del rival: cuando eso pasa, su dueño cae al vacío y pierde.
 
-Para lograrlo, los jugadores **rebotan entre sí** y **contra las burbujas** que suben desde abajo. Cada choque revienta una burbuja; el peligro es que el globo del rival aguante más que el tuyo.
+Para lograrlo, los jugadores rebotan entre sí y contra las burbujas que suben desde abajo. Cada choque revienta una burbuja, y el peligro es que el globo del rival aguante más que el tuyo.
 
-Gana **el último que quede en pie**. La partida se resuelve en pocos segundos: es un duelo rápido y caótico, pensado para jugarse en el mismo teclado.
+Gana el último que quede en pie. La partida se resuelve en pocos segundos, así que es un duelo rápido y caótico pensado para jugarse en el mismo teclado.
 
 ---
 
@@ -76,10 +76,10 @@ Gana **el último que quede en pie**. La partida se resuelve en pocos segundos: 
 
 | Jugador | Moverse izquierda | Moverse derecha |
 | --- | --- | --- |
-| **Persona A** | `A` | `D` |
-| **Persona B** | `←` | `→` |
+| Persona A | `A` | `D` |
+| Persona B | `←` | `→` |
 
-Ambos jugadores usan el **mismo teclado**. El panel de pausa se abre con el botón de pausa en pantalla.
+Los dos jugadores comparten el mismo teclado. El panel de pausa se abre con el botón de pausa en pantalla.
 
 ---
 
@@ -87,42 +87,40 @@ Ambos jugadores usan el **mismo teclado**. El panel de pausa se abre con el bot�
 
 ### El globo y la caída
 
-Cada jugador está suspendido de un globo. El globo es literalmente su vida: mientras siga intacto, el jugador flota. Cuando el globo revienta, `PlayerController.DropFaster()` aumenta la masa y la gravedad del jugador para que caiga de inmediato al vacío.
+Cada jugador cuelga de un globo, y ese globo es su vida: mientras siga intacto, flota. Cuando revienta, `PlayerController.DropFaster()` sube la masa y la gravedad del jugador para que caiga de inmediato.
 
-Al caer fuera de la pantalla, la zona de muerte de la escena detecta la salida y dispara el **final de partida**, mostrando quién ganó.
+La zona de muerte de la escena detecta cuándo alguien sale de pantalla y dispara el final de partida, que muestra quién ganó.
 
 ### Las burbujas
 
-Las burbujas son el corazón del combate. `Bubble.cs` les da dos comportamientos:
+Las burbujas son el centro del combate. `Bubble.cs` les da dos comportamientos.
 
-- **Impulso inicial**: al aparecer, cada burbuja se impulsa hacia arriba con una fuerza configurable, para que suban hacia la zona de juego.
-- **Rebote manual**: al chocar con un jugador, la burbuja calcula la dirección del impacto `(posición jugador − posición burbuja)`, la normaliza y aplica un impulso de rebote al `Rigidbody2D` del jugador. No se usa la física de rebote de Unity, sino un empuje controlado —lo que da un comportamiento más predecible y "de videojuego".
-- **Explosión**: tras el choque reproduce la animación de explosión y se destruye sola, esperando la duración exacta del clip.
+Al aparecer, cada burbuja se impulsa hacia arriba con una fuerza configurable, para que suba a la zona de juego. Al chocar con un jugador, calcula la dirección del impacto `(posición jugador − posición burbuja)`, la normaliza y aplica un impulso de rebote al `Rigidbody2D` del jugador. Eso sustituye la física de rebote de Unity por un empuje controlado, que resulta más predecible. Después reproduce la animación de explosión y se destruye sola, esperando la duración exacta del clip.
 
-Las burbujas aparecen en **oleadas**: `BubbleSpawner.cs` genera grupos de 3 burbujas cada 4 segundos, con un retardo inicial de 8 segundos. Dentro de cada oleada, las burbujas salen con 0,1 s de separación y en una **posición X aleatoria** dentro de un rango amplio, para que el combate no sea repetitivo.
+Las burbujas aparecen en oleadas: `BubbleSpawner.cs` genera grupos de 3 burbujas cada 4 segundos, con un retardo inicial de 8 segundos. Dentro de cada oleada salen con 0,1 s de separación y en una posición X aleatoria dentro de un rango amplio, para que el combate no sea repetitivo.
 
 ### Gravedad progresiva
 
-`PlayerController.cs` introduce una cuenta atrás que **complica la partida con el tiempo**:
+`PlayerController.cs` lleva una cuenta atrás que complica la partida con el tiempo:
 
 | Momento | Qué ocurre |
 | --- | --- |
-| Primeros **10 s** | El jugador está **congelado** (`FreezeAll`, gravedad 0). Es la animación *VS* inicial. |
+| Primeros 10 s | El jugador está congelado (`FreezeAll`, gravedad 0). Es la animación VS inicial. |
 | Pasados 10 s | Se libera el movimiento, se permite giro y la gravedad sube a 0,5 |
-| Pasados **30 s** | La gravedad empieza a **subir 0,1 cada 10 s** hasta un máximo de 5 |
-| Globo reventado | La gravedad salta de golpe a 5 y el jugador cae sin remedio |
+| Pasados 30 s | La gravedad sube 0,1 cada 10 s hasta un máximo de 5 |
+| Globo reventado | La gravedad salta a 5 y el jugador cae sin remedio |
 
-Es un sistema que evita partidas eternas: cuanto más dure el duelo, más difícil es mantenerse a flote.
+Con esto ninguna partida se alarga para siempre: cuanto más dura el duelo, más cuesta mantenerse a flote.
 
 ### Objetos del escenario
 
-Además de las burbujas, caen **objetos** desde arriba (conchas, rocas, anclas). `ObjetosSpawner.cs` funciona igual que el spawner de burbujas, pero aparecen por arriba y **también revientan burbujas** al chocar —un tercer factor de caos que los jugadores pueden aprovechar o sufrir.
+Además de las burbujas, caen objetos desde arriba (conchas, rocas, anclas). `ObjetosSpawner.cs` funciona igual que el spawner de burbujas, pero los lanza por arriba, y también revientan burbujas al chocar. Es un tercer factor de caos que los jugadores pueden aprovechar o sufrir.
 
 ---
 
 ## Personajes
 
-Dos peces, cada uno con su personalidad marcada por el contraste:
+Dos peces, cada uno con su personalidad:
 
 <p align="center">
   <img src="docs/img/gifs/pez-cool-idle.gif" alt="Pez cool" height="200">
@@ -131,17 +129,17 @@ Dos peces, cada uno con su personalidad marcada por el contraste:
 
 | Personaje | Descripción |
 | --- | --- |
-| **Cool Fish** | El pez con gorra, auriculares y zapatillas. El "popular" del duelo. |
-| **Uncool Fish** | El pez desgarbado, con la lengua fuera y cara de no entender nada. |
-| **Cthulhu** | El dios verde que observa desde el centro del escenario y da sentido al sacrificio. |
+| Cool Fish | El pez con gorra, auriculares y zapatillas. El popular del duelo. |
+| Uncool Fish | El pez desgarbado, con la lengua fuera y cara de no entender nada. |
+| Cthulhu | El dios verde que observa desde el centro del escenario. |
 
 ---
 
 ## Idiomas
 
-El juego está disponible en **español** e **inglés**, con un selector en el menú de configuración y persistencia entre escenas (el idioma elegido se guarda y se mantiene durante toda la partida).
+El juego está en español e inglés, con un selector en el menú de configuración. El idioma elegido se guarda y se mantiene durante toda la partida, incluso al cambiar de escena.
 
-El sistema se apoya en archivos JSON por idioma en `Assets/StreamingAssets/` (`es-lang.json`, `en-lang.json`) y un `LanguageManager` que localiza los textos en todas las escenas: menú, configuración, pausa y cinemática.
+Los textos viven en archivos JSON dentro de `Assets/StreamingAssets/` (`es-lang.json`, `en-lang.json`), y un `LanguageManager` los aplica en todas las escenas: menú, configuración, pausa y cinemática.
 
 <p align="center">
   <img src="docs/img/06-configuracion.png" alt="Panel de configuración" width="760"><br>
@@ -152,14 +150,14 @@ El sistema se apoya en archivos JSON por idioma en `Assets/StreamingAssets/` (`e
 
 ## Arte y animación
 
-Todo el arte es **2D dibujado a mano**, creado durante la jam con Paint Tool SAI, Clip Studio Paint y Adobe Illustrator. Los personajes están animados como **secuencias de sprites** (idle y caída), y las burbujas tienen animaciones de reposo y de explosión.
+Todo el arte es 2D dibujado a mano durante la jam, con Paint Tool SAI, Clip Studio Paint y Adobe Illustrator. Los personajes se animan con secuencias de sprites (idle y caída), y las burbujas tienen animación de reposo y de explosión.
 
 <p align="center">
   <img src="docs/img/gifs/burbuja-idle.gif" alt="Burbuja en reposo" height="150">
   <img src="docs/img/gifs/burbuja-explosion.gif" alt="Burbuja explotando" height="150">
 </p>
 
-El escenario se compone de **capas de parallax** que se reposicionan al subir, dando sensación de ascenso continuo:
+El escenario son capas de parallax que se reposicionan al subir, para dar sensación de ascenso continuo.
 
 <p align="center">
   <img src="docs/img/gifs/escenario-burbuja-1.gif" alt="Burbuja de escenario" height="140">
@@ -179,7 +177,7 @@ El juego usa tres pistas de música, una por escena:
 | Combate | `bgm` |
 | Cinemática | `bgm_cinematic` |
 
-Los efectos incluyen la explosión de burbujas, el pop de los objetos, clics de interfaz, un aviso de peligro y la voz profunda de pelea. El **volumen es ajustable** desde el panel de configuración y se conserva entre escenas.
+Los efectos cubren la explosión de burbujas, el pop de los objetos, clics de interfaz, un aviso de peligro y la voz profunda de pelea. El volumen se ajusta desde el panel de configuración y se conserva entre escenas.
 
 ---
 
@@ -209,41 +207,41 @@ Los scripts están agrupados por sistema: `Personaje` (movimiento, globo, animac
 
 ## Cómo ejecutarlo
 
-**En el navegador (recomendado):**
+En el navegador, desde itch.io:
 
 [👉 Jugar Cthulhu Jamboree en itch.io](https://crimpatches.itch.io/chutulu-jamboree)
 
-**En el editor de Unity:**
+En el editor de Unity:
 
-1. Instala **Unity 2022.3.56f1** con el módulo de **WebGL Build Support**.
+1. Instala Unity 2022.3.56f1 con el módulo de WebGL Build Support.
 2. Abre la carpeta `PrototipoGameJam2025/` con Unity Hub.
 3. Abre la escena `Assets/Scenes/Menu.unity`.
-4. Pulsa **Play**.
+4. Pulsa Play.
 
-**Orden de escenas en el build:** `EsambladoEsqueleto` → `Menu` → `Cinematics`.
+Orden de escenas en el build: `EsambladoEsqueleto` → `Menu` → `Cinematics`.
 
 ---
 
 ## El proceso de la jam
 
-El proyecto se desarrolló durante la **Global Game Jam 2025**, bajo el tema propuesto para esa edición. El resultado es un juego **competitivo de partidas cortas**, con todo el arte dibujado a mano y una cinemática narrada que da contexto a la mecánica de las burbujas.
+El proyecto se hizo durante la Global Game Jam 2025, bajo el tema propuesto para esa edición. El arte está dibujado a mano y la cinemática narra el contexto de la mecánica de las burbujas.
 
-La idea parte de un chiste: tomar la mitología de Cthulhu (sacrificios, dioses antiguos) y convertirla en una pelea absurda entre dos peces por quién no es sacrificado. Todo el tono del juego —los personajes, la cinemática, el nombre— nace de esa premisa.
+La idea nace de un chiste: tomar la mitología de Cthulhu (sacrificios, dioses antiguos) y convertirla en una pelea absurda entre dos peces por quién no es sacrificado. De ahí salen los personajes, la cinemática y el nombre.
 
 ---
 
 ## Equipo
 
-Proyecto de la **Global Game Jam 2025**, desarrollado por **Crim.Patches**:
+Proyecto de la Global Game Jam 2025, desarrollado por Crim.Patches:
 
 | Integrante | Rol |
 | --- | --- |
-| **Cristian Pacheco** | Animador y artista 2D |
-| **Brayan León** | Programador y ensamblaje |
-| **Stiven Rueda** | Diseño de interfaces |
-| **Minuk Lee** | Música y efectos |
-| **Esteban Ruíz** | Programador y ensamblado |
-| **Ricardo Quintero** | Ensamblado |
+| Cristian Pacheco | Animador y artista 2D |
+| Brayan León | Programador y ensamblaje |
+| Stiven Rueda | Diseño de interfaces |
+| Minuk Lee | Música y efectos |
+| Esteban Ruíz | Programador y ensamblado |
+| Ricardo Quintero | Ensamblado |
 
 <br>
 
