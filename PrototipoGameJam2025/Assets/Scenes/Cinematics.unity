@@ -335,8 +335,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Chuthulu llego y trajo caos consigo trayendo destruccion a la pez sociedad,
-    pero unas ofrendas cambiaron el rumbo de la historia.
+  m_text: "Cthulhu lleg\xF3 y trajo el caos consigo, destruyendo a la sociedad pez,
+    pero unas ofrendas cambiaron el rumbo de la historia."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dd90bb3ddd6d2ab98ac9e15e3d023e74, type: 2}
   m_sharedMaterial: {fileID: -7818404807048880774, guid: dd90bb3ddd6d2ab98ac9e15e3d023e74, type: 2}
@@ -620,8 +620,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Los nuevos campeones para el duelo de quien ser\xE1 sacrificado a Chutulu
-    a sido decidido entre tu y tu mejor amigo!!!"
+  m_text: "Los nuevos campeones del duelo que decidir\xE1 qui\xE9n ser\xE1 sacrificado
+    a Cthulhu han sido elegidos: \xA1t\xFA y tu mejor amigo!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dd90bb3ddd6d2ab98ac9e15e3d023e74, type: 2}
   m_sharedMaterial: {fileID: -7818404807048880774, guid: dd90bb3ddd6d2ab98ac9e15e3d023e74, type: 2}
@@ -1435,8 +1435,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Al inicio de los tiempos la pez sociedad hacia rituales Chtonicos para
-    obtener gustos pero no contaban con lo que pasar\xEDa"
+  m_text: "Al inicio de los tiempos, la sociedad pez realizaba rituales ct\xF3nicos
+    para obtener placeres, pero no sab\xEDa lo que estaba por ocurrir."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dd90bb3ddd6d2ab98ac9e15e3d023e74, type: 2}
   m_sharedMaterial: {fileID: -7818404807048880774, guid: dd90bb3ddd6d2ab98ac9e15e3d023e74, type: 2}
@@ -1513,6 +1513,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631904539}
   m_CullTransparentMesh: 1
+--- !u!1 &642325924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 642325926}
+  - component: {fileID: 642325925}
+  m_Layer: 0
+  m_Name: LanguageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &642325925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642325924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ffe1ec78ce27a3448486ca595ec60b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 0}
+  startButtonText: {fileID: 0}
+  configButtonText: {fileID: 0}
+  exitButtonText: {fileID: 0}
+  musicLabel: {fileID: 0}
+  languageLabel: {fileID: 0}
+  tutorialText: {fileID: 0}
+  backButtonText: {fileID: 0}
+  pauseResumeText: {fileID: 0}
+  pauseRestartText: {fileID: 0}
+  pauseExitText: {fileID: 0}
+  cinematicParagraphs:
+  - {fileID: 631904541}
+  - {fileID: 77805955}
+  - {fileID: 1889491088}
+  - {fileID: 1699738601}
+  - {fileID: 351702788}
+  defaultLanguage: es
+--- !u!4 &642325926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642325924}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &642347261
 GameObject:
   m_ObjectHideFlags: 0
@@ -3765,9 +3827,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "La pez sociedad decidi\xF3 llevar los sacrificios en base a Duelos de
-    burbujas para que solo el mas capaz sobreviva y contribuya mas a la sociedad,
-    la pez sociedad."
+  m_text: "La sociedad pez decidi\xF3 resolver los sacrificios con duelos de burbujas,
+    para que solo el m\xE1s capaz sobreviva y aporte m\xE1s a la sociedad."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dd90bb3ddd6d2ab98ac9e15e3d023e74, type: 2}
   m_sharedMaterial: {fileID: -7818404807048880774, guid: dd90bb3ddd6d2ab98ac9e15e3d023e74, type: 2}
@@ -4069,8 +4130,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Chutulu resulto adorando la comida tradicional cultural de la pez sociedad,
-    reduciendo el numero de sacrificios a solo 1 por a\xF1o."
+  m_text: "Cthulhu termin\xF3 adorando la comida tradicional de la sociedad pez y
+    redujo los sacrificios a solo uno por a\xF1o."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dd90bb3ddd6d2ab98ac9e15e3d023e74, type: 2}
   m_sharedMaterial: {fileID: -7818404807048880774, guid: dd90bb3ddd6d2ab98ac9e15e3d023e74, type: 2}
@@ -4720,3 +4781,4 @@ SceneRoots:
   - {fileID: 582560196}
   - {fileID: 610801986}
   - {fileID: 6412564066525610238}
+  - {fileID: 642325926}

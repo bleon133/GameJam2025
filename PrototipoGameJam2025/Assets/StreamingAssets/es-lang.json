@@ -1,0 +1,19 @@
+{
+  "menu-btn-jugar": "Jugar",
+  "menu-btn-config": "Ajustes",
+  "menu-btn-salir": "Salir",
+  "menu-label-musica": "Volumen",
+  "menu-label-idioma": "Seleccionar idioma",
+  "config-btn-regresar": "Regresar",
+  "config-btn-tutorial": "Tutorial",
+  "tutorial-texto": "El jugador A usa A/D y el jugador B usa las flechas ←/→. El objetivo es evitar caer y que tus globos exploten.",
+  "cinematica-parrafo1": "Al inicio de los tiempos, la sociedad pez realizaba rituales ctónicos para obtener placeres, pero no sabía lo que estaba por ocurrir.",
+  "cinematica-parrafo2": "Cthulhu llegó y trajo el caos consigo, destruyendo a la sociedad pez, pero unas ofrendas cambiaron el rumbo de la historia.",
+  "cinematica-parrafo3": "Cthulhu terminó adorando la comida tradicional de la sociedad pez y redujo los sacrificios a solo uno por año.",
+  "cinematica-parrafo4": "La sociedad pez decidió resolver los sacrificios con duelos de burbujas, para que solo el más capaz sobreviva y aporte más a la sociedad.",
+  "cinematica-parrafo5": "Los nuevos campeones del duelo que decidirá quién será sacrificado a Cthulhu han sido elegidos: ¡tú y tu mejor amigo!",
+  "play-btn-reiniciar": "Reiniciar",
+  "play-btn-salir": "Salir",
+  "play-btn-reanuar": "Reanudar",
+  "play-btn-config": "Ajustes"
+}

@@ -1,0 +1,19 @@
+{
+  "menu-btn-jugar": "Play",
+  "menu-btn-config": "Settings",
+  "menu-btn-salir": "Exit",
+  "menu-label-musica": "Volume",
+  "menu-label-idioma": "Select language",
+  "config-btn-regresar": "Back",
+  "config-btn-tutorial": "Tutorial",
+  "tutorial-texto": "Player A uses A/D and player B uses the ←/→ arrow keys. The goal is to avoid falling and keep your balloons from popping.",
+  "cinematica-parrafo1": "At the dawn of time, the fish society performed chthonic rituals to obtain pleasures, but it did not know what was about to happen.",
+  "cinematica-parrafo2": "Cthulhu arrived and brought chaos with him, destroying the fish society, but a few offerings changed the course of history.",
+  "cinematica-parrafo3": "Cthulhu ended up adoring the fish society's traditional food and reduced the sacrifices to just one per year.",
+  "cinematica-parrafo4": "The fish society decided to settle the sacrifices with bubble duels, so that only the most capable survives and contributes more to society.",
+  "cinematica-parrafo5": "The new champions of the duel that will decide who is sacrificed to Cthulhu have been chosen: you and your best friend!",
+  "play-btn-reiniciar": "Restart",
+  "play-btn-salir": "Exit",
+  "play-btn-reanuar": "Resume",
+  "play-btn-config": "Settings"
+}
