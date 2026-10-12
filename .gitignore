@@ -70,3 +70,24 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# ------------------------------------------------------------------
+# Herramientas de desarrollo local
+# ------------------------------------------------------------------
+
+# Roslyn instalado por el MCP for Unity (compilador local, pesado y
+# regenerable: se vuelve a instalar solo desde el propio panel del MCP).
+**/[Aa]ssets/Plugins/Roslyn/
+**/[Aa]ssets/Plugins/Roslyn.meta
+
+# Plugin MCP for Unity, por si se copia dentro de Assets en lugar de
+# quedar como paquete en Library/PackageCache.
+**/[Aa]ssets/Plugins/Editor/MCPForUnity/
+**/[Aa]ssets/Plugins/Editor/MCPForUnity.meta
+
+# Configuración de clientes que el MCP reescribe solo
+.mcp/
+mcp_*.json
+
+# Capturas y artefactos temporales del editor
+[Cc]aptures/
